@@ -1,7 +1,8 @@
  //declare bacteria variables here   
  void setup()   
  {     
- 	//initialize bacteria variables here   
+ size (500,500);
+
  }   
  void draw()   
  {    
@@ -9,5 +10,12 @@
  }  
  class Bacteria    
  {     
- 	//lots of java!   
+ 	int myColor;
+    ___
+
+void show()
+{
+fill (myColor);
+_____
+}
  }    
