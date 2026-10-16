@@ -15,11 +15,14 @@ car cOne;
     pOne[i].show();
     pOne[i].thing();
      
-  if(dist(pOne[i].mX, pOne[i].mY, mouseX, mouseY)<30)
-      //background(9,81,100);
+  if(dist(pOne[i].mX, pOne[i].mY, mouseX, mouseY)<20)
       fill(255,0,251);
       textSize (32);
-      text(" YOU GOT CAUGHT", 130, 250);
+      text(" YOU GOT CAUGHT", 100, 250);
+  if (dist(pOne[i].mX, pOne[i].mY, mouseX, mouseY)>20)
+    fill(206,255,231);
+      textSize(32);
+      text(".", 0,0);
  }  
  
    cOne.show();
@@ -47,7 +50,7 @@ void thing()
      ellipse (mX, mY, 30,30);
    fill(19,127,13);
      textSize (10);
-     text( "Person", mX-15, mY+3);
+     text( "Person", mX-17, mY+3);
   
 }
  }// end of ppl class 
@@ -69,7 +72,7 @@ void thing()
      
      fill(0);
      textSize(24);
-     text(" T A X I ", mmX-35,mmY+10);
+     text(" T A X I ", mmX-45,mmY+10);
      
    }
  }// end of car class
