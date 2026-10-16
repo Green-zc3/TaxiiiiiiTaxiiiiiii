@@ -1,4 +1,4 @@
-ppl [] pOne = new ppl [21];  
+ppl [] pOne = new ppl [100];  
 car cOne;
  void setup()   
  {     
@@ -11,10 +11,21 @@ car cOne;
  void draw()   
  {    
      background(206,255,231);
-   for(int i = 0; i< pOne.length; i++)
+   for(int i = 0; i< pOne.length; i++){
     pOne[i].show();
-     cOne.show();
+    pOne[i].thing();
+     
+  if(dist(pOne[i].mX, pOne[i].mY, mouseX, mouseY)<30)
+      //background(9,81,100);
+      fill(255,0,251);
+      textSize (32);
+      text(" YOU GOT CAUGHT", 130, 250);
  }  
+ 
+   cOne.show();
+   
+ }
+ 
  class ppl    
  {     
    float mX, mY;
@@ -27,16 +38,16 @@ ppl(float startX, float startY){
 }
 void thing()
 {
-  mX = mX + (mouseX - mX)*0.03;
-  mY = mY + (mouseY - mY)*0.03;
+  mX = mX + (mouseX - mX)*0.006;
+  mY = mY + (mouseY - mY)*0.006;
 }
   void show(){
     
   fill (myColor);  
      ellipse (mX, mY, 30,30);
    fill(19,127,13);
-     textSize (20);
-     text( "Person", mX-10, mY+5);
+     textSize (10);
+     text( "Person", mX-15, mY+3);
   
 }
  }// end of ppl class 
