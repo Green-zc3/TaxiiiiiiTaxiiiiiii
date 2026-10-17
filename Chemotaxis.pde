@@ -19,10 +19,7 @@ car cOne;
       fill(255,0,251);
       textSize (32);
       text(" YOU GOT CAUGHT", 100, 250);
-  if (dist(pOne[i].mX, pOne[i].mY, mouseX, mouseY)>20)
-    fill(206,255,231);
-      textSize(32);
-      text(".", 0,0);
+
  }  
  
    cOne.show();
