@@ -53,7 +53,7 @@ void thing()
  }// end of ppl class 
  
  class car {
-   int mmX, mmY;
+   float mmX, mmY;
    color carColor;
    
    car(){
@@ -61,8 +61,8 @@ void thing()
    }
    
  void show(){
-   mmX = mouseX;
-   mmY = mouseY;
+   float mmX = width/2 ;
+   float mmY = height/2;
    noStroke();
      fill (carColor);
      ellipse(mmX, mmY, 50,40);
