@@ -15,11 +15,10 @@ car cOne;
     pOne[i].show();
     pOne[i].thing();
      
-//  if(dist(pOne[i].mX, pOne[i].mY, cOne.mmX, cOne.mmY)<20)
-    
-//      fill(255,0,251);
- //     textSize (32);
-//      text(" YOU GOT CAUGHT", 100, 250);
+  if(dist(pOne[i].mX, pOne[i].mY, mouseX, mouseY)<20)
+      fill(255,0,251);
+      textSize (32);
+      text(" YOU GOT CAUGHT", 100, 250);
 
  }  
  
@@ -54,7 +53,7 @@ void thing()
  }// end of ppl class 
  
  class car {
-   float mmX, mmY;
+   int mmX, mmY;
    color carColor;
    
    car(){
@@ -62,8 +61,8 @@ void thing()
    }
    
  void show(){
-   float mmX = width/2 ;
-   float mmY = height/2;
+   mmX = mouseX;
+   mmY = mouseY;
    noStroke();
      fill (carColor);
      ellipse(mmX, mmY, 50,40);
