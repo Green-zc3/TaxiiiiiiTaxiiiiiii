@@ -1,59 +1,75 @@
-fih [] blob = new fih [2];
-hearty []  Hearts = new hearty [100];
-void setup()
-{
-  size(400,400);
-  background(0,45,103,10);
-  Hearts = new hearty();
-  for(int i = 0; i< Hearts.length; i++)
-    Hearts [i] = new hearty();
-  
-}
-void draw()
-{
-  for(int i = 0; i< 100; i++)
- // Hearts[i].move();
-  Hearts[i].show();
-}
-class hearty
-{
-  double myX, myY, mySpeed, myColor;
-  int myAngle;
-  
- hearty()
-  {
-    myX = 200;
-    myY = 200;
-    mySpeed = Math.random()*16;
-    myAngle = (int)(Math.random()*2*Math.PI);
-    myColor = color((int)(Math.random()*255), (int)(Math.random()*6),(int)(Math.random()*140));
-  }//end heart
-  
-  void move()
-  {
-    
-  }//end move
-  
-  void show()
-  {
-  float myX, myY;
-  myX = 200;
-  myY = 200;
-  //fill ((int)(Math.random()*255)+1, (int)(Math.random()*100)+1, (int)(Math.random()*80)+1);
-  fill(255, 0, 100);
-  ellipse(myX- 35, myY- 20, 90, 90);
-  ellipse(myX+ 35, myY- 20, 90, 90);
-  triangle(myX- 77,myY - 10, myX + 77, myY - 10, myX, myY + 95);
-  
-  }//end show
-  
-}//end hearty class
+ppl [] pOne = new ppl [100];  
+car cOne;
+ void setup()   
+ {     
+ size (500,500);
+ cOne = new car ();
+ for(int i = 0; i< pOne.length; i++)
+   pOne[i] = new ppl (random(width), random(height));
 
-class fih extends hearty//inherits from Particle
-{
-  fih(){
-   myY = 400;
-   myX = 250;
-  
-  }//end fih
+ }   
+ void draw()   
+ {    
+     background(206,255,231);
+   for(int i = 0; i< pOne.length; i++){
+    pOne[i].show();
+    pOne[i].thing();
+     
+  if(dist(pOne[i].mX, pOne[i].mY, mouseX, mouseY)<30)
+      //background(9,81,100);
+      fill(255,0,251);
+      textSize (32);
+      text(" YOU GOT CAUGHT", 130, 250);
+ }  
+ 
+   cOne.show();
+   
+ }
+ 
+ class ppl    
+ {     
+   float mX, mY;
+   color myColor;
+
+ppl(float startX, float startY){
+  mX = startX;
+  mY = startY;
+  myColor = color(173,177,255);
 }
+void thing()
+{
+  mX = mX + (mouseX - mX)*0.006;
+  mY = mY + (mouseY - mY)*0.006;
+}
+  void show(){
+    
+  fill (myColor);  
+     ellipse (mX, mY, 30,30);
+   fill(19,127,13);
+     textSize (10);
+     text( "Person", mX-15, mY+3);
+  
+}
+ }// end of ppl class 
+ 
+ class car {
+   int mmX, mmY;
+   color carColor;
+   
+   car(){
+   carColor = color(250,197,3);
+   }
+   
+ void show(){
+   mmX = mouseX;
+   mmY = mouseY;
+   noStroke();
+     fill (carColor);
+     ellipse(mmX, mmY, 50,40);
+     
+     fill(0);
+     textSize(24);
+     text(" T A X I ", mmX-35,mmY+10);
+     
+   }
+ }// end of car class
